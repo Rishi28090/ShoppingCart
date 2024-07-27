@@ -16,8 +16,7 @@ import kids from './Components/Assets/banner_kids.png'
 function App() {
   return (
     <div>
-      <BrowserRouter>
-      
+      <BrowserRouter> 
      <Navbar/>
      <Routes>
        <Route path='/' element={<Shop/>}/>

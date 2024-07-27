@@ -12,22 +12,14 @@ const Navbar = () => {
         <h3>Bewakoof</h3>
       </div>
       <ul className="nav-menu">
-        <li
-          onClick={() => {
-            setmenu("shop");
-          }}
-        >
+        <li onClick={() => { setmenu("shop") }}>
           {" "}
           <Link style={{ textDecoration: "none" }} to="/">
             SHOP
           </Link>
           {menu === "shop" ? <hr /> : <></>}
         </li>
-        <li
-          onClick={() => {
-            setmenu("mens");
-          }}
-        >
+        <li onClick={() => { setmenu("mens") }} >
           <Link style={{ textDecoration: "none" }} to="/mens">
             MENS
           </Link>

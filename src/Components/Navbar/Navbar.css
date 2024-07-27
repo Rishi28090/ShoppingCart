@@ -3,7 +3,9 @@
     justify-content: space-around;
     padding: 16px;
     box-shadow: 0 1px 3px -2px black ;
-    background-color: rgb(224, 208, 255);
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    width: 100%;
 }
 
 .nav-logo{
@@ -25,7 +27,7 @@
     align-items: center;
     list-style: none;
     gap:50px;
-   color: azure;
+    color: azure;
     font-size: 20px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 300;
@@ -37,7 +39,6 @@
     align-items: center;justify-content: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #f3f3f3;
-   
     gap:5px;
     cursor: pointer;
 }
@@ -47,7 +48,7 @@
     width:80%;
     height: 3px;
     border-radius: 10px;
-    background-color: azure;
+    background-color: rgb(255, 133, 67);
 }
 
 .nav-login-cart{
@@ -60,16 +61,21 @@
     width: 150px;
     height: 50px;
     outline: none;
-    border: 1px solid #7a7a7a;
+    /* border: 1px solid #7a7a7a; */
+    border: none;
     border-radius: 75px;
-    color: #515151;
+    color: #ffffff;
     font-size: 20px;
     font-weight: 500;
-    background-color:whitesmoke;
-    font-family:'Times New Roman', Times, serif;
+    background-color: #ff4141;
+    /* font-family: 'Times New Roman', Times, serif; */
     cursor: pointer;
 
 }
+.nav-login-cart button:hover{
+    background-color:  #ff0000;
+}
+
 .nav-login-cart button:active{
     background-color: #f3f3f3;
 }
