@@ -5,7 +5,9 @@
     box-shadow: 0 1px 3px -2px black ;
     background-color: rgb(255, 255, 255);
     position: fixed;
+    top: 0;
     width: 100%;
+    z-index: 10;
 }
 
 .nav-logo{
@@ -15,7 +17,7 @@
 }
 
 .nav-logo h3{
-    color: rgba(6, 2, 30, 0.926);
+    color: rgb(0, 0, 0);
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: larger;
     font-weight: 300;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import logo from "../Assets/logo.png";
 import cart_icon from "../Assets/cart_icon.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [menu, setmenu] = useState("shop");
   return (
@@ -14,13 +14,13 @@ const Navbar = () => {
       <ul className="nav-menu">
         <li onClick={() => { setmenu("shop") }}>
           {" "}
-          <Link style={{ textDecoration: "none" }} to="/">
+          <Link style={{ textDecoration: "none", color: "black" }} to="/">
             SHOP
           </Link>
           {menu === "shop" ? <hr /> : <></>}
         </li>
         <li onClick={() => { setmenu("mens") }} >
-          <Link style={{ textDecoration: "none" }} to="/mens">
+          <Link style={{ textDecoration: "none", color: "black" }} to="/mens">
             MENS
           </Link>
           {menu === "mens" ? <hr /> : <></>}
@@ -31,7 +31,7 @@ const Navbar = () => {
           }}
         >
           {" "}
-          <Link style={{ textDecoration: "none" }} to="/womens">
+          <Link style={{ textDecoration: "none", color: "black" }} to="/womens">
             WOMENS
           </Link>{" "}
           {menu === "womens" ? <hr /> : <></>}
@@ -42,7 +42,7 @@ const Navbar = () => {
           }}
         >
           {" "}
-          <Link style={{ textDecoration: "none" }} to="/kids">
+          <Link style={{ textDecoration: "none", color: "black" }} to="/kids">
             KIDS
           </Link>{" "}
           {menu === "kids" ? <hr /> : <></>}

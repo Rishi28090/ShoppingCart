@@ -13,21 +13,21 @@
 }
 
 .newsletter h1{
-    color: black;
-    font-size: 55px;
+    color: #000000;
+    font-size: 40px;
     font-weight: 600;
 
 }
 
 .newsletter p{
-    color: aquamarine;
+    color: #454545;
     font-size: 20px;
 }
 
 .newsletter div{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background:white;
     width: 730px;
     height: 70px;
@@ -53,5 +53,4 @@
     color: white;
     font-size: 16px;
     cursor: pointer;
-
 }
