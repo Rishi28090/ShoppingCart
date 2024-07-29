@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./Hero.css";
 // import hand_icon from '../Assets/hand_icon.png'
 // import arrow_icon from '../Assets/arrow.png'
@@ -14,10 +14,11 @@ const Hero = () => {
   //  });
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoplay] = useState(true);
-  let timeout = null;
+  const timeoutRef = useRef(null);
+  const timeout = null;
 
   useEffect(() => {
-    timeout =
+    timeoutRef.timeout =
       autoPlay &&
       setTimeout(() => {
         slideRight();
@@ -33,15 +34,7 @@ const Hero = () => {
   return (
     <div className="hero">
       <div
-        className="carousel_wrapper"
-        onMouseEnter={() => {
-          setAutoplay(false);
-          clearTimeout(timeout);
-        }}
-        onMouseLeave={() => {
-          setAutoplay(true);
-        }}
-      >
+        className="carousel_wrapper">
         {slideImage.map((image, index) => {
           return (
             <div
@@ -51,11 +44,18 @@ const Hero = () => {
                   ? "carousel_card carousel_card-active"
                   : "carousel_card"
               }
+              onMouseEnter={() => {
+                setAutoplay(false);
+                clearTimeout(timeout);
+              }}
+              onMouseLeave={() => {
+                setAutoplay(true);
+              }}
             >
               <img className="card_image" src={image.image} alt="" />
-              <div className="">
+              {/* <div className="">
                 <h2 className="card_title">{image.caption}</h2>
-              </div>
+              </div> */}
             </div>
           );
         })}

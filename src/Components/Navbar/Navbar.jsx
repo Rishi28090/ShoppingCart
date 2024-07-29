@@ -12,18 +12,45 @@ const Navbar = () => {
         <h3>Bewakoof</h3>
       </div>
       <ul className="nav-menu">
-        <li onClick={() => { setmenu("shop") }}>
+        <li
+          onClick={() => {
+            setmenu("shop");
+          }}
+        >
           {" "}
-          <Link style={{ textDecoration: "none", color: "black" }} to="/">
-            SHOP
-          </Link>
+          <Link style={{ textDecoration: "none", color: "black", fontWeight: "light"}} to="/"> SHOP </Link>
           {menu === "shop" ? <hr /> : <></>}
         </li>
-        <li onClick={() => { setmenu("mens") }} >
+        <li
+          className="dropdown"
+          onClick={() => {
+            setmenu("mens");
+          }}
+        >
           <Link style={{ textDecoration: "none", color: "black" }} to="/mens">
             MENS
           </Link>
           {menu === "mens" ? <hr /> : <></>}
+          {/* <ul className="submenu">
+            <li>
+              <a href="">Top wear</a>
+              <ul className="submenu_list">
+                <li><a href="">T - shirts</a></li>
+                <li><a href="">Shirts</a></li>
+                <li><a href="">kurti</a></li>
+                <li><a href="">jackets</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="">Bottom wear</a>
+              <ul className="submenu_list">
+              <li><a href="">T - shirts</a></li>
+                <li><a href="">Shirts</a></li>
+                <li><a href="">kurti</a></li>
+                <li><a href="">jackets</a></li>
+                </ul>
+            </li>
+          </ul> */}
         </li>
         <li
           onClick={() => {
