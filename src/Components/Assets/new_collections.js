@@ -1,68 +1,69 @@
-import p1_img from "./product_12.png";
-import p2_img from "./product_35.png";
-import p3_img from "./product_14.png";
-import p4_img from "./product_8.png";
-import p5_img from "./product_15.png";
-import p6_img from "./product_2.png";
-import p7_img from "./product_17.png";
-import p8_img from "./product_28.png";
+import p1_img from "./sk-4.avif";
+import p2_img from "./g-3.avif";
+import p3_img from "./t-10.avif";
+import p4_img from "./k-8.avif";
+import p5_img from "./t-11.avif";
+import p6_img from "./k-2.avif";
+import p7_img from "./t-2.avif";
+import p8_img from "./b-4.avif";
 
 let new_collections = [
   {
     id: 12,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Embroidered A-Line Kurta with Round Neck",
+    category: "women",
     image: p1_img,
-    new_price: 1500.0,
-    old_price: 1800.5,
+    new_price: 860,
+    old_price: 1999,
   },
   {
     id: 35,
-    name: "Boys Orange Colourblocked Hooded Sweatshirt",
+    name: "Girls Printed Shirt Dress with Insert Pocket",
     image: p2_img,
-    new_price: 1850.0,
-    old_price: 2000.5,
+    new_price: 750,
+    old_price: 1999,
   },
   {
     id: 14,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Typographic Print Slim Fit Polo T-Shirt",
     image: p3_img,
-    new_price: 600.0,
-    old_price: 1000.5,
+    new_price: 325,
+    old_price: 1299,
   },
   {
     id: 8,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Floral Straight Kurta with V-Neck",
     image: p4_img,
-    new_price: 1100.0,
-    old_price: 1500.0,
+    new_price: 918,
+    old_price: 2699,
   },
   {
     id: 15,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Colourblock Regular Fit Polo T-Shirt",
     image: p5_img,
-    new_price: 500.0,
-    old_price: 800.5,
+    new_price: 369,
+    old_price: 995,
   },
   {
     id: 2,
-    name: "Striped Flutter Sleeve Overlap Collar Peplum Hem Blouse",
+    name: "Striped Straight Kurta",
     image: p6_img,
-    new_price: 1000.0,
-    old_price: 1200.5,
+    new_price: 405,
+    old_price: 1499,
   },
   {
     id: 17,
-    name: "Men Green Solid Zippered Full-Zip Slim Fit Bomber Jacket",
+    name: "Loose Fit Graphic Print Crew-Neck T-Shirt",
     image: p7_img,
-    new_price: 600.0,
-    old_price: 1000.5,
+    new_price: 315,
+    old_price: 1499,
   },
   {
     id: 28,
-    name: "Boys Orange Colourblocked Hooded Sweatshirt",
+    name: "Boys Regular Fit Shirt with Spread Collar",
     image: p8_img,
-    new_price: 1000.0,
-    old_price: 1500.0,
+    new_price: 578,
+    old_price: 1699,
   },
 ];
 
