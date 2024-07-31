@@ -10,7 +10,7 @@ import p9_img from "./sk-1.avif";
 import p10_img from "./sk-2.avif";
 import p11_img from "./sk-3.avif";
 import p12_img from "./sk-4.avif";
-import p13_img from "./t-1.avif";
+import p13_img from "./t1.avif";
 import p14_img from "./t-10.avif";
 import p15_img from "./t-11.avif";
 import p16_img from "./t-12.avif";
@@ -138,11 +138,11 @@ let all_product = [
   },
   {
     id: 13,
-    name: "Graphic Print Oversized Fit Crew-Neck T-Shirts",
+    name: "Slim Fit Polo T-Shirt",
     category: "men",
     image: p13_img,
-    new_price: 498,
-    old_price: 2998,
+    new_price: 900,
+    old_price: 1799,
   },
   {
     id: 14,
