@@ -35,6 +35,7 @@ const Hero = () => {
     <div className="hero">
       <div
         className="carousel_wrapper">
+          
         {slideImage.map((image, index) => {
           return (
             <div

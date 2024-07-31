@@ -8,7 +8,7 @@
     margin: auto;
     padding: 0px 140px;
     margin-bottom: 150px;
-    background: linear-gradient(180deg,#fde1ff 0%,#e1ffea22 60%);
+    background: linear-gradient(180deg,#cfc1a4,#fff5e138 60%);
     gap: 30px;
 }
 
@@ -49,15 +49,20 @@
     width: 210px;
     height: 70px;
     border-radius: 80px;
-    background: black;
+    border: none;
+    background: #ad8746;
     color: white;
     font-size: 16px;
     cursor: pointer;
 }
 @media only screen and (max-width: 1200px){
-   
     .newsletter input{
         width: 100vw;
-        height: 40vh;
+    }
+    .newsletter{
+        gap: 10px;
+    }
+    .newsletter div{
+        width: 60vw;
     }
 }

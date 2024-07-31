@@ -1,6 +1,6 @@
 import React from 'react'
 import './Footer.css'
-import footer_logo from '../Assets/logo_big.png'
+import footer_logo from '../Assets/clothing_logo.png'
 import insta from '../Assets/instagram_icon.png'
 import pin from '../Assets/pintester_icon.png'
 import what from '../Assets/whatsapp_icon.png'
@@ -9,9 +9,8 @@ import what from '../Assets/whatsapp_icon.png'
   return (
     <div className='footer'>
         <div className="footer-logo">
-            <img src={footer_logo} alt="" />
-            <p>Bewakoof</p>
-
+            <img src={footer_logo} alt="" width={200} height={150} />
+            <p>CLOTHING</p>
         </div>
         <ul className="footlink">
             <li>Company</li>

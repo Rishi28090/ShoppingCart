@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import logo from "../Assets/logo.png";
+import logo from "../Assets/clothing_logo.png";
 import cart_icon from "../Assets/cart_icon.png";
 import { Link } from "react-router-dom";
 const Navbar = () => {
@@ -9,7 +9,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="nav-logo">
         <img src={logo} alt="" />
-        <h3>Bewakoof</h3>
+        <h3>CLOTHING</h3>
       </div>
       <ul className="nav-menu">
         <li
@@ -18,7 +18,7 @@ const Navbar = () => {
           }}
         >
           {" "}
-          <Link style={{ textDecoration: "none", color: "black", fontWeight: "light"}} to="/"> SHOP </Link>
+          <Link style={{ textDecoration: "none", color: "#0d4f76", fontWeight: "light"}} to="/"> SHOP </Link>
           {menu === "shop" ? <hr /> : <></>}
         </li>
         <li
@@ -27,7 +27,7 @@ const Navbar = () => {
             setmenu("mens");
           }}
         >
-          <Link style={{ textDecoration: "none", color: "black" }} to="/mens">
+          <Link style={{ textDecoration: "none", color: "#0d4f76" }} to="/mens">
             MENS
           </Link>
           {menu === "mens" ? <hr /> : <></>}
@@ -58,7 +58,7 @@ const Navbar = () => {
           }}
         >
           {" "}
-          <Link style={{ textDecoration: "none", color: "black" }} to="/womens">
+          <Link style={{ textDecoration: "none", color: "#0d4f76" }} to="/womens">
             WOMENS
           </Link>{" "}
           {menu === "womens" ? <hr /> : <></>}
@@ -69,16 +69,18 @@ const Navbar = () => {
           }}
         >
           {" "}
-          <Link style={{ textDecoration: "none", color: "black" }} to="/kids">
+          <Link style={{ textDecoration: "none", color: "#0d4f76" }} to="/kids">
             KIDS
           </Link>{" "}
           {menu === "kids" ? <hr /> : <></>}
         </li>
       </ul>
       <div className="nav-login-cart">
-        <Link to="/login">
+        <Link to="/login" style={{textDecoration: "none", color: "#0d4f76"}}>
           {" "}
-          <button>Login</button>{" "}
+          <span>
+          Login{" "}
+          </span>
         </Link>
         <Link to="/cart">
           {" "}

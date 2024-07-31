@@ -6,7 +6,7 @@
     padding: 0px 140px;
     margin-top: 90px;
     margin-bottom: 150px;
-    background: linear-gradient(180deg,#d18ed6,#e1ffea22 60%);
+    background: linear-gradient(180deg,#cfc1a4,#fff5e138 60%);
 }
 
 .offers-left{
@@ -32,7 +32,7 @@
     width: 282px;
     height: 70px;
     border-radius: 35px;
-    background: #ff4141;
+    background:  #ad8746;
     border: none;
     font-size: 22px;
     font-weight: 500;
@@ -46,11 +46,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-top: 50px;
+    /* padding-top: 50px; */
+    position: relative;
+    bottom: 35px;
 }
 .offer-right img{
-    width: 25vw;
-    height: 80vh;
+    width: 22vw;
+    height: 70vh;
 }
 @media only screen and (max-width: 1200px){
     .offer-right{

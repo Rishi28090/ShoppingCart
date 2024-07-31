@@ -1,18 +1,18 @@
 .loginsignup{
     width: 100%;
     height: 100vh;
-    background-color: rgb(217, 248, 255);
-    padding-top: 100px;
-
+    /* background-color: rgb(217, 248, 255); */
+    /* padding-top: 100px; */
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 .login-container{
-    width: 500px;
+    width: 750px;
     height: 650px;
     background-color: whitesmoke;
     margin: auto;
-    padding: 40px 60px;
-
-
+    padding: 40px 30px;
+    margin-bottom: 10%;
 }
 
 .login-container h1{
@@ -38,17 +38,15 @@
 
 }
 .login-container button{
-    width: 520px;
+    width: 100%;
     height: 72px;
     color: white;
     background:#790e80;
     margin-top: 30px;
     border: none;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 500;
     cursor: pointer;
-  
-
 }
 
 .loginsign-login{

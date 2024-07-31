@@ -11,15 +11,14 @@ import './CSS/login.css'
                 <input type='email' placeholder='Email Address'/>
                 <input type='password' placeholder='password'/>
 
-            </div>
             <button>Continue</button>
-            <p className="loginsign-login">Already Have an Account <span>Login Here</span></p>
+            </div>
+            <p className="loginsign-login">
+                Already Have an Account ? <span>Login Here</span></p>
             <div className='login-agree'>
                 <input type="checkbox" name='' id="" />
                 <p>By continuing , i agree to the terms of use & privacy policy</p>
-
             </div>
-
         </div>
     </div>
   )
