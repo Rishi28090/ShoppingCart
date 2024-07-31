@@ -29,3 +29,10 @@
     margin-top: 50px;
     gap:30px;
 }
+
+@media only screen and (max-width: 1200px){
+    .collections{
+        display: grid;
+        grid-template-columns: repeat(2,2fr);
+    }
+}

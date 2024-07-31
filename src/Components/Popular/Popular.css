@@ -27,3 +27,9 @@
     gap: 30px;
     /* height: 20vh; */
 }
+@media only screen and (max-width: 1200px){
+    .popular-item{
+        display: grid;
+        grid-template-columns: repeat(2,2fr);
+    }
+}

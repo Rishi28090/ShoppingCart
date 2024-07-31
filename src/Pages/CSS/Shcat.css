@@ -2,6 +2,7 @@
     display: block;
     margin: 30px auto;
     width: 82%;
+    margin-top: 10%;
 }
 
 .shopcat-indexS{
@@ -22,10 +23,11 @@
     font-weight: 600;
 }
 .shopcat-products{
-    margin: 20px 170px;
+    margin: 20px 110px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     row-gap: 80px;
+    /* gap: 10px; */
 }
 
 .shcatload{
