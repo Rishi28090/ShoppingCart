@@ -49,7 +49,7 @@
 .carousel_arrow_right{
     position: absolute;
     font-size: 40px;
-    top: 50%;
+    /* top: 58%; */
     transform: translate(0, -50%);
     background-color: white;
     display: flex;
@@ -63,6 +63,7 @@
 }
 
 .carousel_arrow_left{
+    top: 55%;
     left: 15px;
 }
 .carousel_arrow_left:hover{
@@ -74,6 +75,7 @@
     color: white;
 }
 .carousel_arrow_right{
+    top: 55%;
     right: 15px;
 }
 .carousel_pagination{

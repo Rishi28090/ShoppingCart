@@ -30,7 +30,12 @@
 
 .footlink li{
     cursor: pointer;
+    color: #0d4f76;
+    transition: 0.5s;
 
+}
+.footlink li:hover{
+    color: #ad8746;
 }
 .footicon{
     display: flex;
@@ -42,9 +47,13 @@
     padding-bottom: 6px;
     background: #fbfbfb;
     border: 1px solid #ebebeb;
+    /* transition: 0.5s;
+    cursor: pointer; */
 
 }
-
+/* .foot-icon-container img:hover{
+    transform: scale(1.9);
+} */
 .footcopy{
     display: flex;
     flex-direction: column;
@@ -52,12 +61,12 @@
     gap: 30px;
     width: 100%;
     margin-bottom: 30px;
-    color: #1a1a1a;
+    color: #0d4f76;
     font-size: 20px;
 }
 
 .footcopy hr{
-    width: 80%;
+    width: 100%;
     border: none;
     border-radius: 10px;
     height: 3px;
