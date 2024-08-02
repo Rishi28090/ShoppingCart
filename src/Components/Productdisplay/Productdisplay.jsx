@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Productdisplay.css'
 import star_icon from '../Assets/star_icon.png'
 import star_dull_icon from '../Assets/star_dull_icon.png'
+import { ShopContext } from '../../Context/ShopContext'
 
  const Productdisplay = (props) => {
     const {product} = props;
+    const {addTocart} = useContext(ShopContext);
   return (
     <div className='productdisplay'>
         <div className="pd-left">
@@ -43,7 +45,7 @@ import star_dull_icon from '../Assets/star_dull_icon.png'
                     <div>XXL</div>
                 </div>
             </div>
-            <button>ADD TO CART</button>
+            <button onClick={()=>{addTocart(product.id)}}>ADD TO CART</button>
             <div className="pd-right-descp">
                 A Lightweight ,usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment. 
             </div>
