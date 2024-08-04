@@ -3,6 +3,7 @@ import './Productdisplay.css'
 import star_icon from '../Assets/star_icon.png'
 import star_dull_icon from '../Assets/star_dull_icon.png'
 import { ShopContext } from '../../Context/ShopContext'
+import { Link } from 'react-router-dom'
 
  const Productdisplay = (props) => {
     const {product} = props;
@@ -45,7 +46,9 @@ import { ShopContext } from '../../Context/ShopContext'
                     <div>XXL</div>
                 </div>
             </div>
-            <button onClick={()=>{addTocart(product.id)}}>ADD TO CART</button>
+            <Link onClick={()=>{addTocart(product.id)}} style={{ textDecoration: "none", color: "white"}} to='/cart'>
+            <button >ADD TO CART</button>
+            </Link>
             <div className="pd-right-descp">
                 A Lightweight ,usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment. 
             </div>
