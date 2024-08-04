@@ -226,9 +226,10 @@ li:hover ul.submenu{
         height: 70px;
         width: 100%;
         position: absolute;
-        background-color: white;
+        background-color: #ffffffc0;
         justify-content: center;
         top: 60px;
+        z-index: 2;
     }
     .nav-menu-visible{
         display: flex;

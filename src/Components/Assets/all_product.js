@@ -213,7 +213,7 @@ let all_product = [
     name: "Men Striped Oversized Crew-Neck T-Shirt",
     category: "men",
     image: p22_img,
-    new_price: 85.0,
+    new_price: 850,
     old_price: 2499,
   },
   {
