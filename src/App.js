@@ -8,8 +8,8 @@ import Cart from './Pages/Cart';
 import Shcat from './Pages/Shcat';
 import Login from './Pages/Login';
 import Footer from './Components/Footer/Footer';
-import men_banner from './Components/Assets/banner_mens.png'
-import women_banner from './Components/Assets/banner_women.png'
+import men_banner from './Components/Assets/banner_mens.jpg'
+import women_banner from './Components/Assets/banner_women.jpg'
 import kids from './Components/Assets/banner_kids.png'
 
 

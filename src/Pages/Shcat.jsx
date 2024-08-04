@@ -5,14 +5,13 @@ import dpdown from '../Components/Assets/dropdown_icon.png'
 import Item from '../Components/Item/Item'
 
  const Shcat = (props) => {
-  const {all_product} = useContext(ShopContext);
+ const {all_product} = useContext(ShopContext);
   return (
     <div className='shcat'>
         <img className='shcat-banner' src={props.banner} alt="" />
         <div className="shopcat-indexS">
           <p>
             <span>Showing 1-128</span> Out of 36 Products
-
           </p>
           <div className="shopcat-sort">
             Sort by <img src={dpdown} alt="" />

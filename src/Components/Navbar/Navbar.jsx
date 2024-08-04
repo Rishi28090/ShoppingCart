@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./Navbar.css";
 import logo from "../Assets/clothing_logo.png";
 import cart_icon from "../Assets/cart_icon.png";
 import { Link } from "react-router-dom";
+import nav_dropdown from "../Assets/nav_dropdown.png";
+ 
 const Navbar = () => {
   const [menu, setmenu] = useState("shop");
+  const menuRef = useRef();
+
+  const dropdown_toggle = (e) => {
+    menuRef.current.classList.toggle('nav-menu-visible');
+    e.target.classList.toggle('open')
+  }
+  
   return (
     <div className="navbar">
       <div className="nav-logo">
         <img src={logo} alt="" />
-        <h3>CLOTHING</h3>
+        <p>CLOTHING</p>
       </div>
-      <ul className="nav-menu">
+      <img className="nav-dropdown" src={nav_dropdown} alt="" onClick={dropdown_toggle}/>
+      <ul className="nav-menu" ref={menuRef}>
         <li
           onClick={() => {
             setmenu("shop");
           }}
         >
           {" "}
-          <Link style={{ textDecoration: "none", color: "#0d4f76", fontWeight: "light"}} to="/"> SHOP </Link>
+          <Link style={{ textDecoration: "none", color: "#0d4f76"}} to="/"> SHOP </Link>
           {menu === "shop" ? <hr /> : <></>}
         </li>
         <li
-          className="dropdown"
           onClick={() => {
             setmenu("mens");
           }}
@@ -31,26 +40,6 @@ const Navbar = () => {
             MENS
           </Link>
           {menu === "mens" ? <hr /> : <></>}
-          {/* <ul className="submenu">
-            <li>
-              <a href="">Top wear</a>
-              <ul className="submenu_list">
-                <li><a href="">T - shirts</a></li>
-                <li><a href="">Shirts</a></li>
-                <li><a href="">kurti</a></li>
-                <li><a href="">jackets</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="">Bottom wear</a>
-              <ul className="submenu_list">
-              <li><a href="">T - shirts</a></li>
-                <li><a href="">Shirts</a></li>
-                <li><a href="">kurti</a></li>
-                <li><a href="">jackets</a></li>
-                </ul>
-            </li>
-          </ul> */}
         </li>
         <li
           onClick={() => {

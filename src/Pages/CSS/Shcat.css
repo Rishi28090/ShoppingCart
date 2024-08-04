@@ -1,7 +1,7 @@
 .shcat-banner{
     display: block;
     margin: 30px auto;
-    width: 82%;
+    width: 85%;
     margin-top: 10%;
 }
 
@@ -38,8 +38,68 @@
     width: 233px;
     height: 69px;
     border-radius: 75px;
-    background-color: antiquewhite;
+    /* background-color: #bf841f; */
     color: black;
     font-size: 15px;
     font-weight: 400;
+    background-color: #ededed;
+}
+.shcatload:hover{
+    background-color: #bf841f;
+    color: white;
+}
+@media (max-width: 1280px) {
+    .shcat-banner{
+        margin: auto;
+        margin-top: 10%;
+        width: 90%;
+    }
+    .shopcat-indexS{
+        width: 90%;
+        margin: 15px auto;
+    }
+    .shopcat-sort{
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .shopcat-indexS p{
+        font-size: 12px;
+    }
+    .shopcat-products{
+        width: 90%;
+        margin: 10px auto;
+        row-gap: 40px;
+    }
+    .shopcat-products .item{
+        margin:0 auto;
+    }
+    .shcatload{
+        margin: 100px auto;
+        width: 200px;
+        height: 60px;
+        font-size: 16px;
+    }
+}
+@media (max-width:800px) {
+    .shcat-banner{
+        margin-top: 15%;
+        width: 95%;
+    }
+    .shopcat-products{
+        width: 95%;
+    }
+    .shcatload{
+        margin: 60px auto;
+        width: 150px;
+        height: 40px;
+        font-style: 13px;
+    }
+}
+@media (max-width: 500px) {
+    .shcat-banner{
+        margin-top: 20%;
+    }
+    .shopcat-products{
+        grid-template-columns: 1fr 1fr;
+    }
 }

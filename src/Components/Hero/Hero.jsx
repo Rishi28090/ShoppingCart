@@ -1,24 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./Hero.css";
-// import hand_icon from '../Assets/hand_icon.png'
-// import arrow_icon from '../Assets/arrow.png'
-// import hero from '../Assets/hero.png'
-// import { useTypewriter, Cursor } from 'react-simple-typewriter'
 import { slideImage } from "./carosole_data";
 
 const Hero = () => {
-  // const [Text] = useTypewriter({
-  //    words: ['Mens','Womens','Kids'],
-  //    loop: {},
-  //    typeSpeed: 150,
-  //  });
   const [current, setCurrent] = useState(0);
   const [autoPlay, setAutoplay] = useState(true);
   const timeoutRef = useRef(null);
   const timeout = null;
 
   useEffect(() => {
-    timeoutRef.timeout = autoPlay &&
+    timeoutRef.timeout =
+      autoPlay &&
       setTimeout(() => {
         slideRight();
       }, 1500);
@@ -32,16 +24,7 @@ const Hero = () => {
   };
   return (
     <div className="hero">
-      <div
-        className="carousel_wrapper"
-        onMouseEnter={() => {
-          setAutoplay(false);
-          clearTimeout(timeout);
-        }}
-        onMouseLeave={() => {
-          setAutoplay(true);
-        }}
-      >
+      <div className="carousel_wrapper">
         {slideImage.map((image, index) => {
           return (
             <div
@@ -52,8 +35,19 @@ const Hero = () => {
                   : "carousel_card"
               }
             >
-              <img className="card_image" src={image.image} alt="" />
-            </div>
+              <img
+                className="card_image"
+                onMouseEnter={() => {
+                  setAutoplay(false);
+                  clearTimeout(timeout);
+                }}
+                onMouseLeave={() => {
+                  setAutoplay(true);
+                }}
+                src={image.image}
+                alt=""
+                />
+             </div>
           );
         })}
         <div className="carousel_arrow_left" onClick={slideLeft}>

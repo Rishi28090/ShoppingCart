@@ -1,6 +1,3 @@
-// import img_banner1 from '../Assets/banner_mens.png'
-// import img_banner2 from '../Assets/banner_women.png'
-// import img_banner3 from '../Assets/banner_kids.png'
 import img_banner4 from '../Assets/img_banner1.jpg'
 import img_banner5 from '../Assets/img_banner2.jpg'
 import img_banner6 from '../Assets/img_banner3.jpg'
@@ -15,19 +12,7 @@ import img_banner14 from '../Assets/img_banner11.jpg'
 
 
 export const slideImage = [
-    // {
-    //   image: img_banner1 ,
-    //   caption: "first image"
-    // },
-    // {
-    //   image: img_banner2,
-    //   caption: "second image"
-    // },
-    // {
-    //   image: img_banner3,
-    //   caption: "third image"
-    // },
-    {
+   {
       image: img_banner4,
       caption: "third image"
     },
