@@ -1,5 +1,5 @@
 import React from 'react'
-import Cartitems from '../Components/CartItems/Cartitems';
+import Cartitems from '../Components/CartItems/CartItems.jsx';
 
  const Cart = () => {
   return (
