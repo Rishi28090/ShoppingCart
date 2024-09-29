@@ -1,0 +1,113 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.footer-logo{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.footer-logo p{
+    color: #0d4f76;
+    font-size: 46px;
+    font-weight: 700;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.footlink{
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    color: blueviolet;
+    font-size: 20px;
+}
+
+.footlink li{
+    cursor: pointer;
+    color: #0d4f76;
+    transition: 0.5s;
+
+}
+.footlink li:hover{
+    color: #ad8746;
+}
+.footicon{
+    display: flex;
+    gap: 20px;
+
+}
+.foot-icon-container{
+    padding: 10px;
+    padding-bottom: 6px;
+    background: #fbfbfb;
+    /* border: 1px solid #ebebeb; */
+    /* transition: 0.5s;
+    cursor: pointer; */
+
+}
+/* .foot-icon-container img:hover{
+    transform: scale(1.9);
+} */
+.footcopy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 30px;
+    color: #0d4f76;
+    font-size: 20px;
+}
+
+.footcopy hr{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    height: 3px;
+    background: #c7c7c7;
+}
+.footicon .foot-icon-container:nth-child(1) img:hover{
+    background: linear-gradient(90deg, #f9ce34,  #ee2a7b , #6228d7) ;
+    border-radius: 10px;
+}
+.footicon .foot-icon-container:nth-child(2) img:hover {
+    background-color: 	#E60023;
+    border-radius: 22px;
+}
+.footicon .foot-icon-container:nth-child(3) img:hover {
+    background-color:	#25D366;
+    border-radius: 10px;
+}
+@media (max-width: 800px) {
+    .footer{
+        gap: 20px;
+    }
+    .footer-logo{
+        gap: 10px;
+        align-items: end;
+    }
+    .footer-logo img{
+        width: 40px;
+        height: 30px;
+    }
+    .footer-logo p{
+        font-size: 25px;
+    }
+    .footlink{
+        font-size: 14px;
+        gap: 10px;
+    }
+    .footicon img{
+        width: 22px;
+    }
+    .footcopy{
+        font-size: 13px;
+    }
+    
+}
