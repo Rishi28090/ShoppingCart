@@ -1,4 +1,4 @@
-import React, { createContext, useState,useEffect } from "react";
+import React, { createContext,useState,useEffect } from "react";
 import axios from "axios";
 
 
@@ -40,8 +40,6 @@ const ShopContextProvider = (props) => {
     const [discount, setDiscount] = useState(0);
     const [totalAmount, setTotalAmount] = useState(0);
 
-    
-   
     const addTocart = (itemId)=>{
         setCartItem((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         if(localStorage.getItem("auth-token")) {
@@ -100,7 +98,7 @@ const ShopContextProvider = (props) => {
 
     useEffect(() => {
         setTotalAmount(getTotalCartAmount());
-    }, [cartItems]);
+    }, [cartItems,all_product]);
 
     const getTotalCartItems = () =>{
         let totalItem = 0;

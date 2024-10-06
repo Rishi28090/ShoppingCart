@@ -11,15 +11,15 @@ const Product = () => {
   const { all_product } = useContext(ShopContext);
 
   // Find the product using `productId` (make sure it's cast to the right type)
-  const product = all_product.find((e) => e.id === Number(productId));
+  const product = all_product.find((e) => e.productId === Number(productId));
 
-  console.log("Product ID from params:", productId); // Should display a valid product ID
+  console.log("Product ID from params:", product); // Should display a valid product ID
   console.log("All Products:", all_product);
 
   return (
     <div>
-      <Breadcrum product={product} />
-      <Productdisplay product={product} />
+      <Breadcrum product={productId} />
+      <Productdisplay product={productId} />
       <DiscriptionBox/>
       <RelatedProducts/>
     </div>
@@ -27,3 +27,24 @@ const Product = () => {
 };
 
 export default Product;
+// const Product = () => {
+//   const { productId } = useParams(); // Retrieve `productId` from URL
+//   const { all_product } = useContext(ShopContext);
+//   const [product, setProduct] = useState({}); // Create a state variable for the product data
+
+//   useEffect(() => {
+//     // Find the product using `productId` (make sure it's cast to the right type)
+//     const foundProduct = all_product.find((e) => e.productId === Number(productId));
+//     setProduct(foundProduct || {}); // Update the product state variable
+//   }, [productId, all_product]); // Run the effect when productId or all_product changes
+
+//   return (
+//     <div>
+//       <Breadcrum product={product} />
+//       <Productdisplay product={product} />
+//       <DiscriptionBox/>
+//       <RelatedProducts/>
+//     </div>
+//   );
+// };
+// export default Product;

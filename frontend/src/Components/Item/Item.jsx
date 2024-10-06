@@ -2,18 +2,18 @@ import React from 'react'
 import './Item.css'
 import { Link } from 'react-router-dom'
 
- const Item = (props) => {
+ const Item = ({productId, name, image, new_price, old_price}) => {
   return (
     <div className='item'>
-        <Link to={`/product/${props.productId}`}><img onClick={window.scrollTo(0,0)} src={props.image} alt="" />
+        <Link to={`/product/${productId}`}><img onClick={window.scrollTo(0,0)} src={image} alt="" />
         </Link> 
-        <p>{props.name}</p>
+        <p>{name}</p>
         <div className='item-prices'>
             <div className="item-price-new">
-                ₹ {props.new_price}
+                ₹ {new_price}
             </div>
             <div className="item-price-old">
-                ₹ {props.old_price}
+                ₹ {old_price}
             </div>
         </div>
     </div>

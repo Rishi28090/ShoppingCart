@@ -57,7 +57,7 @@ const Productdisplay = (props) => {
           </div>
         </div>
         {/* Use the correct function name */}
-        <Link onClick={() => { addTocart(product.Id) }} style={{ textDecoration: "none", color: "white" }} to='/cart'>
+        <Link onClick={() => { addTocart(product.productId) }} style={{ textDecoration: "none", color: "white" }} to='/cart'>
           <button >ADD TO CART</button>
         </Link>
         <div className="pd-right-descp">

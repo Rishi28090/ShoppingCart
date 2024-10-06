@@ -14,7 +14,7 @@ import kids from './Components/Assets/banner_kids.png'
 
 
 function App() {
-  return (
+  return (  
     <div>
       <BrowserRouter> 
      <Navbar/>
