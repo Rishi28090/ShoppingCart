@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 import { ShopContext } from "../Context/ShopContext";
 import Breadcrum from "../Components/Breadcrums/Breadcrum";
 import Productdisplay from "../Components/Productdisplay/Productdisplay";
@@ -11,15 +11,16 @@ const Product = () => {
   const { all_product } = useContext(ShopContext);
 
   // Find the product using `productId` (make sure it's cast to the right type)
-  const product = all_product.find((e) => e.productId === Number(productId));
+  // const products = all_product.find((e) => e.productId === Number(id));
+  const product = all_product.find((p) => p.productId === Number(productId));
 
   console.log("Product ID from params:", product); // Should display a valid product ID
   console.log("All Products:", all_product);
 
   return (
     <div>
-      <Breadcrum product={productId} />
-      <Productdisplay product={productId} />
+      <Breadcrum product={product} />
+      <Productdisplay product={product} />
       <DiscriptionBox/>
       <RelatedProducts/>
     </div>

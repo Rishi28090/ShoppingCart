@@ -134,6 +134,8 @@ const Addproduct = () => {
           value={productDetails.description}
           onChange={changhandler}
           name='description'
+          rows={3}
+          cols={5}
           placeholder='Type Product Description Here'
         ></textarea>
       </div>

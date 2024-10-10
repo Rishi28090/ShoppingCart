@@ -39,8 +39,10 @@
     border: none;
     font-size: 18px;
     font-weight: 600;
+    color: #454545;
     /* border: 2px solid #ebebeb; */
-    background: #fff;
+    background: transparent;
+    /* z-index: -1; */
 }
 .cartitems-down{
     display: flex;
@@ -57,6 +59,8 @@
     display: flex;
     justify-content: space-between;
     padding: 15px 0px;
+    /* color: #454545; */
+    font-weight: 700;
 }
 .cartitems-total button{
     width: 262px;
@@ -119,6 +123,7 @@
     .cartitems-quantity{
         width: 40px;
         height: 30px;
+        color: black;
     }
     .cartitems-down{
         margin: 80px 0px;

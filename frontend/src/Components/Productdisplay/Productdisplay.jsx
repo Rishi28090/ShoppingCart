@@ -5,6 +5,7 @@ import star_dull_icon from '../Assets/star_dull_icon.png';
 import { ShopContext } from '../../Context/ShopContext';
 import { Link } from 'react-router-dom';
 
+
 const Productdisplay = (props) => {
   const { product } = props;
   // Use the correct name: addToCart or addTocart

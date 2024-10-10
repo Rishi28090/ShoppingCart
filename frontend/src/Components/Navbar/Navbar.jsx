@@ -19,18 +19,18 @@ const Navbar = () => {
     window.location.replace("/");
   }
 
-  const logOutBtn = () => {
-    if(localStorage.getItem("auth-token")) {
-      return <button onClick={onLogOutClick}>Logout</button>
-    } else {
-      return <Link to="/login" style={{textDecoration: "none", color: "#0d4f76"}}>
-      {" "}
-      <span>
-      Login{" "}
-      </span>
-    </Link>
-    }
-  }
+  // const logOutBtn = () => {
+  //   if(localStorage.getItem("auth-token")) {
+  //     return <button onClick={onLogOutClick}>Logout</button>
+  //   } else {
+  //     return <Link to="/login" style={{textDecoration: "none", color: "#0d4f76"}}>
+  //     {" "}
+  //     <span>
+  //     Login{" "}
+  //     </span>
+  //   </Link>
+  //   }
+  // }
 
   return (
     <div className="navbar">

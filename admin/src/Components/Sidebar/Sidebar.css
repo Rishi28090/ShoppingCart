@@ -1,24 +1,33 @@
 .sidebar{
     display: flex;
     flex-direction: column;
-    padding-top: 30px;
-    gap:20px;
+    padding-top: 4%;
+    gap:30px;
     width: 100%;
     max-width: 250px;
-    height: 100vh;
-    background: rgb(255, 228, 187);
+    height: 90vh;
+    background: rgb(229, 229, 229);
+    position: fixed;
+    top: 10%;
 }
 
 .sidebar-item{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0px 20px;
+    margin: 0px 30px;
     padding: 5px 10px;
     border-radius: 6px;
     background: #ffffff;
-    gap:20px;
+    gap: 20px;
     cursor: pointer;
+    height: 50px;
+    color: #0d4f76;
+    font-weight: 600;
+}
+.sidebar-item i{
+    color: #ad8746;
+    font-size: 25px;
 }
 
 @media (max-width:800px){

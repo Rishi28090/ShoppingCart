@@ -119,11 +119,8 @@ const Product = mongoose.model("Product", {
     }
   });
 
-
-
-
 app.post("/removeproduct", async (req, res) => {
-    await Product.findOneAndDelete({id: req.body.id});
+    await Product.findOneAndDelete({productId: req.body.productId });
     console.log("Removed");
     res.json({
         success: true,
@@ -173,7 +170,7 @@ const fetchUsers = async (req, res, next) => {
 //  Creating API for Cart Products
 app.post("/addtocart", fetchUsers, async (req, res) => {
     let userData = await Users.findOne({_id: req.user.id});
-    userData.cartData[req.body.itemId] += 1;
+    userData.cartData[req.body.productId] += 1;
     await Users.findByIdAndUpdate({_id: req.user.id}, {cartData: userData.cartData});
     res.send("Added");
 })
@@ -278,7 +275,7 @@ app.post("/login", async (req, res) => {
 app.post("/updateproduct", async (req, res) => {
     try {
         const updatedProduct = await Product.findOneAndUpdate(
-            { id: req.body.id },
+            { productId: req.body.productId  },
             {
                 name: req.body.name,
                 old_price: req.body.old_price,
