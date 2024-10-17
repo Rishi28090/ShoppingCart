@@ -8,6 +8,8 @@ const getDefaultCart = () => {
   for (let index = 0; index < 300 + 1; index++) {
     cart[index] = 0;
   }
+  // console.log(cart);
+
   return cart;
 };
 const ShopContextProvider = (props) => {
@@ -142,20 +144,20 @@ const ShopContextProvider = (props) => {
     }
   };
 
-//   const contextValue = {
-//     promoCode,
-//     handlePromoCodeSubmit,
-//     handlePromoCodeChange,
-//     getTotalCartItems,
-//     getTotalCartAmount,
-//     all_product,
-//     cartItems,
-//     addTocart,
-//     removeFromcart,
-//     totalAmount: (totalAmount * (1 - discount / 100)).toFixed(2),
-//   };
+  //   const contextValue = {
+  //     promoCode,
+  //     handlePromoCodeSubmit,
+  //     handlePromoCodeChange,
+  //     getTotalCartItems,
+  //     getTotalCartAmount,
+  //     all_product,
+  //     cartItems,
+  //     addTocart,
+  //     removeFromcart,
+  //     totalAmount: (totalAmount * (1 - discount / 100)).toFixed(2),
+  //   };
 
-const contextValue = {
+  const contextValue = {
     promoCode,
     handlePromoCodeSubmit,
     handlePromoCodeChange,
@@ -167,7 +169,7 @@ const contextValue = {
     removeFromcart,
     totalAmount: totalAmount, // No need to calculate discount here, do it in the component
     discount,
-};
+  };
 
   return (
     <ShopContext.Provider value={contextValue}>

@@ -28,25 +28,32 @@ const Listproduct = () => {
   }, []);
 
   // Remove product
-  const remove_product = async (id) => {
+  const remove_product = async (productId) => {
     try {
-      await fetch("http://localhost:4000/removeproduct", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ id }),
-      });
-      await fetchInfo(); // Re-fetch products after removal
+        const response = await fetch("http://localhost:4000/removeproduct", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ productId }), // Corrected casing to match server
+        });
+
+        const result = await response.json(); // Optionally handle the response
+        if (result.success) {
+            alert("Product removed successfully");
+            await fetchInfo(); // Re-fetch products after removal
+        } else {
+            alert(result.error || "Failed to remove product");
+        }
     } catch (error) {
-      console.error("Error removing product:", error);
+        console.error("Error removing product:", error);
     }
-  };
+};
 
   // Start editing a product
   const editProduct = (product) => {
-    setEditProductId(product.id);
+    setEditProductId(product.productId); // Use product.productId instead of product.id
     setEditFormData({
       name: product.name,
       old_price: product.old_price,
@@ -65,7 +72,7 @@ const Listproduct = () => {
   };
 
   // Update product details in backend and display an alert
-  const updateProduct = async (id) => {
+  const updateProduct = async () => {
     try {
       const response = await fetch("http://localhost:4000/updateproduct", {
         method: "POST",
@@ -74,7 +81,7 @@ const Listproduct = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id,
+          productId: editProductId, // Ensure you are sending the correct productId
           ...editFormData,
         }),
       });
@@ -85,7 +92,7 @@ const Listproduct = () => {
         setEditProductId(null); // Exit edit mode
         await fetchInfo(); // Re-fetch updated product list
       } else {
-        alert("Failed to update product");
+        alert(result.error || "Failed to update product");
       }
     } catch (error) {
       console.error("Error updating product:", error);
@@ -106,7 +113,7 @@ const Listproduct = () => {
       <div className="listproduct-allproduct">
         <hr />
         {allproducts.map((product) => (
-          <React.Fragment key={product.id}>
+          <React.Fragment key={product.productId}>
             <div className="listproduct-format-main listproduct-format">
               <img
                 src={product.image}
@@ -114,7 +121,7 @@ const Listproduct = () => {
                 className="listproduct-product-icon"
               />
 
-              {editProductId === product.id ? (
+              {editProductId === product.productId ? ( // Check against product.productId
                 <>
                   <input
                     type="text"
@@ -142,15 +149,15 @@ const Listproduct = () => {
                   />
                   <button
                     className="btn-edit"
-                    onClick={() => updateProduct(product.id)}
+                    onClick={updateProduct} // Call updateProduct without passing product.id
                   >
-                    <i class="fa-regular fa-floppy-disk"></i>
+                    <i className="fa-regular fa-floppy-disk"></i>
                   </button>
                   <button
                     className="btn-edit"
                     onClick={() => setEditProductId(null)}
                   >
-                    <i class="fa-solid fa-circle-arrow-left"></i>
+                    <i className="fa-solid fa-circle-arrow-left"></i>
                   </button>
                 </>
               ) : (
@@ -163,13 +170,13 @@ const Listproduct = () => {
                     className="btn-edit"
                     onClick={() => editProduct(product)}
                   >
-                    <i class="fa-regular fa-pen-to-square"></i>
+                    <i className="fa-regular fa-pen-to-square"></i>
                   </button>
                 </>
               )}
 
               <img
-                onClick={() => remove_product(product.id)}
+                onClick={() => remove_product(product.productId)} // Use product.productId
                 className="listproduct-remove-icon"
                 src={cross_icon}
                 alt="Remove"
