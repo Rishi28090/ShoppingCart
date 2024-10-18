@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from "react";
-import axios from "axios";
 
 export const ShopContext = createContext(null);
 
@@ -8,35 +7,37 @@ const getDefaultCart = () => {
   for (let index = 0; index < 300 + 1; index++) {
     cart[index] = 0;
   }
+  // console.log(cart);
+
   return cart;
 };
 const ShopContextProvider = (props) => {
   const [all_product, setAllProduct] = useState([]);
   const [cartItems, setCartItem] = useState(getDefaultCart());
 
-  useEffect(() => {
-    fetch("http://localhost:4000/allproducts")
-      .then((response) => response.json())
-      .then((data) => setAllProduct(data));
-
-    if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/getcart", {
-        method: "POST",
-        headers: {
-          Accept: "application/form-data",
-          "auth-token": `${localStorage.getItem("auth-token")}`,
-          "Content-Type": "application/json",
-        },
-        body: "",
-      })
+    useEffect(() => {
+        fetch("http://localhost:4000/allproducts")
         .then((response) => response.json())
-        .then((data) => setCartItem(data));
-    }
-  }, []);
+        .then((data) => setAllProduct(data))
 
-  const [promoCode, setPromoCode] = useState("");
-  const [discount, setDiscount] = useState(0);
-  const [totalAmount, setTotalAmount] = useState(0);
+        if(localStorage.getItem("auth-token")) {
+            fetch("http://localhost:4000/getcart", {
+                method: "POST",
+                headers: {
+                    Accept: "application/form-data",
+                    "auth-token": `${localStorage.getItem("auth-token")}`,
+                    "Content-Type": "application/json"
+                },
+                body: ""
+            }).then((response) => response.json())
+            .then((data) => setCartItem(data))
+        }
+
+    }, [])
+
+    const [promoCode, setPromoCode] = useState('');
+    const [discount, setDiscount] = useState(0);
+    const [totalAmount, setTotalAmount] = useState(0);
 
   const addTocart = (itemId) => {
     setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
@@ -142,20 +143,20 @@ const ShopContextProvider = (props) => {
     }
   };
 
-//   const contextValue = {
-//     promoCode,
-//     handlePromoCodeSubmit,
-//     handlePromoCodeChange,
-//     getTotalCartItems,
-//     getTotalCartAmount,
-//     all_product,
-//     cartItems,
-//     addTocart,
-//     removeFromcart,
-//     totalAmount: (totalAmount * (1 - discount / 100)).toFixed(2),
-//   };
+  //   const contextValue = {
+  //     promoCode,
+  //     handlePromoCodeSubmit,
+  //     handlePromoCodeChange,
+  //     getTotalCartItems,
+  //     getTotalCartAmount,
+  //     all_product,
+  //     cartItems,
+  //     addTocart,
+  //     removeFromcart,
+  //     totalAmount: (totalAmount * (1 - discount / 100)).toFixed(2),
+  //   };
 
-const contextValue = {
+  const contextValue = {
     promoCode,
     handlePromoCodeSubmit,
     handlePromoCodeChange,
@@ -167,7 +168,7 @@ const contextValue = {
     removeFromcart,
     totalAmount: totalAmount, // No need to calculate discount here, do it in the component
     discount,
-};
+  };
 
   return (
     <ShopContext.Provider value={contextValue}>

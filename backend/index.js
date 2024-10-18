@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
-const { error } = require("console");
+const { error, log } = require("console");
 const app = express();
 
 
@@ -16,7 +16,7 @@ app.use(cors());
 
 process.on('uncaughtException', (err) => {
     console.log(err);
-  });  
+});
 
 // Database Connection
 mongoose.connect("mongodb+srv://minorprojectecom:1234@cluster0.nntmq.mongodb.net/e-commerce");
@@ -26,11 +26,11 @@ app.get("/", (req, res) => {
     res.send("Express App is Running!");
 })
 
-app.listen(port,(error) =>{
-    if(!error){
+app.listen(port, (error) => {
+    if (!error) {
         console.log("server is running");
     }
-    else{
+    else {
         console.log("error");
     }
 })
@@ -59,68 +59,68 @@ app.post("/upload", upload.single("product"), (req, res) => {
 // Schema for Creating Products
 const Product = mongoose.model("Product", {
     productId: {
-      type: Number,
-      required: true,
-      unique: true,
+        type: Number,
+        required: true,
+        unique: true,
     },
     name: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     image: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     category: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     new_price: {
-      type: Number,
-      required: true,
+        type: Number,
+        required: true,
     },
     old_price: {
-      type: Number,
-      required: true,
+        type: Number,
+        required: true,
     },
     description: {  // Add description field to schema
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     date: {
-      type: Date,
-      default: Date.now,
+        type: Date,
+        default: Date.now,
     },
     available: {
-      type: Boolean,
-      default: true,
+        type: Boolean,
+        default: true,
     },
-  });
-  
-  // API for Adding a Product
-  app.post("/addproduct", async (req, res) => {
+});
+
+// API for Adding a Product
+app.post("/addproduct", async (req, res) => {
     try {
-      const productId = req.body.productId || (await Product.countDocuments()) + 1;
-      const product = new Product({
-        productId,
-        name: req.body.name,
-        image: req.body.image,
-        category: req.body.category,
-        new_price: req.body.new_price,
-        old_price: req.body.old_price,
-        description: req.body.description, // Save description
-      });
-      await product.save();
-      console.log("Product saved");
-      res.json({ success: true });
+        const productId = req.body.productId || (await Product.countDocuments()) + 1;
+        const product = new Product({
+            productId,
+            name: req.body.name,
+            image: req.body.image,
+            category: req.body.category,
+            new_price: req.body.new_price,
+            old_price: req.body.old_price,
+            description: req.body.description, // Save description
+        });
+        await product.save();
+        console.log("Product saved");
+        res.json({ success: true });
     } catch (error) {
-      console.error("Error inserting product:", error);
-      res.json({ success: false, error: "Database insert failed" });
+        console.error("Error inserting product:", error);
+        res.json({ success: false, error: "Database insert failed" });
     }
-  });
+});
 
 app.post("/removeproduct", async (req, res) => {
-    await Product.findOneAndDelete({productId: req.body.productId });
+    await Product.findOneAndDelete({ productId: req.body.productId });
     console.log("Removed");
     res.json({
         success: true,
@@ -145,55 +145,57 @@ app.get("/newcollections", async (req, res) => {
 
 // Creating API for Popular in Women
 app.get("/popularinwomen", async (req, res) => {
-    let products = await Product.find({category:"women"});
+    let products = await Product.find({ category: "women" });
     let popularInWomen = products.slice(0, 4);
     console.log("Popular In Women Fetched");
-    res.send(popularInWomen);    
+    res.send(popularInWomen);
 })
 
 // Creating Midleware for Fetching Users
 const fetchUsers = async (req, res, next) => {
     const token = req.header("auth-token");
-    if(!token) {
-        res.status(401).send({error: "Please autheticate using valid token"});
+    if (!token) {
+        res.status(401).send({ error: "Please autheticate using valid token" });
     } else {
         try {
             const data = jwt.verify(token, "secret_ecom");
             req.user = data.user;
             next();
         } catch (err) {
-            res.status(401).send({error: "Please authenticate using a valid token"})
+            res.status(401).send({ error: "Please authenticate using a valid token" })
         }
     }
 }
 
 //  Creating API for Cart Products
 app.post("/addtocart", fetchUsers, async (req, res) => {
-    let userData = await Users.findOne({_id: req.user.id});
-    userData.cartData[req.body.productId] += 1;
-    await Users.findByIdAndUpdate({_id: req.user.id}, {cartData: userData.cartData});
+    console.log("Add to cart is being called");
+
+    let userData = await Users.findOne({ _id: req.user.id });
+    userData.cartData[req.body.itemId] += 1;
+    await Users.findByIdAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
     res.send("Added");
 })
 
 // Creating API for removing Cart Data
 app.post("/removefromcart", fetchUsers, async (req, res) => {
-    let userData = await Users.findOne({_id: req.user.id});
-    if(userData.cartData[req.body.itemId] > 0) {
+    let userData = await Users.findOne({ _id: req.user.id });
+    if (userData.cartData[req.body.itemId] > 0) {
         userData.cartData[req.body.itemId] -= 1;
-        await Users.findByIdAndUpdate({_id: req.user.id}, {cartData: userData.cartData});
+        await Users.findByIdAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
         res.send("Removed");
     }
 })
 
 // Creating API for get Cart Data
 app.post("/getcart", fetchUsers, async (req, res) => {
-    let userData = await Users.findOne({_id: req.user.id});
+    let userData = await Users.findOne({ _id: req.user.id });
     res.json(userData.cartData)
 })
 
 // Schema for Users
 const Users = mongoose.model("users", {
-    
+
     name: String,
     email: {
         type: String,
@@ -212,15 +214,15 @@ const Users = mongoose.model("users", {
 
 // Creating endpoint for registering the user
 app.post("/signup", async (req, res) => {
-    let check = await Users.findOne({email: req.body.email});
-    if(check) {
+    let check = await Users.findOne({ email: req.body.email });
+    if (check) {
         return res.status(400).json({
             success: false,
             error: "Already Registerd with given Email ID"
         })
     }
     let cart = {};
-    for(let i=0;i<300;i++) {
+    for (let i = 0; i < 300; i++) {
         cart[i] = 0
     }
     const user = new Users({
@@ -245,10 +247,10 @@ app.post("/signup", async (req, res) => {
 
 // Creating Endpoint for User Login
 app.post("/login", async (req, res) => {
-    let user = await Users.findOne({email: req.body.email});
-    if(user) {
+    let user = await Users.findOne({ email: req.body.email });
+    if (user) {
         const passCompare = req.body.password === user.password;
-        if(passCompare) {
+        if (passCompare) {
             const data = {
                 user: {
                     id: user.id
@@ -275,7 +277,7 @@ app.post("/login", async (req, res) => {
 app.post("/updateproduct", async (req, res) => {
     try {
         const updatedProduct = await Product.findOneAndUpdate(
-            { productId: req.body.productId  },
+            { productId: req.body.productId },
             {
                 name: req.body.name,
                 old_price: req.body.old_price,

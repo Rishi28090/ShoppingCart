@@ -166,6 +166,99 @@ li:hover ul.submenu{
 .nav-dropdown{
     display: none;
 }
+.login-user-icon{
+    position: relative;
+}
+.user-icon{
+    border: 1px solid black;
+    padding: 12px 15px 12px 15px;
+    border-radius: 100px;
+}
+.fa-regular{
+    font-size: 25px;
+}
+.dropdown-menu{
+    position: fixed;
+    left: 79%;
+    top: 17%;
+    z-index: 1;
+    width: 20.5%;
+    padding: 20px;
+    font-size: 15px;
+    border-radius: 20px;
+    background: rgb(203, 203, 203);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 1px 3px -2px black ;
+    box-shadow: 0 4px 30px #00000043;
+
+}
+.dropdown-menu::after{
+    content: "";
+    position: absolute;
+    top: -2%;
+    left: 56%;
+    height: 20px;
+    width: 20px;
+    background: rgb(203, 203, 203);
+    transform: rotate(45deg);
+}
+.dropdown-menu p{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.dropdown-menu span{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.dropdown-menu span i{
+    font-size: 30px;
+}
+.dropdown-menu li i{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    margin-right: 10px;
+}
+.fa-envelope{
+    font-size: 13px;
+}
+.dropdown-menu ul{
+    list-style: none;
+    padding: 10px;
+}
+.dropdown-menu li{
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.dropdown-menu li{
+    padding: 5px;
+    width: 206px;
+    margin-bottom: 15px;
+}
+.dropdown-menu button{
+    margin: 10px 0 0 40px;
+}
+.dropdown-menu.active{
+    opacity: 1;
+    visibility: visible;
+    transition: 0.3s all ease;
+    transform: translateY(0);
+    transition: 0.5s ease;
+}
+.dropdown-menu.inactive{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 0.5s ease;
+}
 @media (max-width: 1280px) {
     .navbar{
         padding: 12px 50px;

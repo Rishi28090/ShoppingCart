@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Listproduct.css";
-import cross_icon from "../../assets/cross_icon.png";
 
 const Listproduct = () => {
   const [allproducts, setAllproducts] = useState([]);
-  const [editProductId, setEditProductId] = useState(null);
+  const [editProductId, setEditProductId] = useState(0);
   const [editFormData, setEditFormData] = useState({
     name: "",
     old_price: "",
@@ -36,8 +35,16 @@ const Listproduct = () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id }),
+        body: JSON.stringify({ productId: id }),
       });
+      const result = await response.json();
+      if (result.success) {
+        alert("Product removed successfully");
+        setEditProductId(null); // Exit edit mode
+        await fetchInfo(); // Re-fetch updated product list
+      } else {
+        alert("Failed to remove product");
+      }
       await fetchInfo(); // Re-fetch products after removal
     } catch (error) {
       console.error("Error removing product:", error);
@@ -46,7 +53,8 @@ const Listproduct = () => {
 
   // Start editing a product
   const editProduct = (product) => {
-    setEditProductId(product.id);
+    // console.log(product.productId);
+    setEditProductId(product.productId);
     setEditFormData({
       name: product.name,
       old_price: product.old_price,
@@ -74,7 +82,7 @@ const Listproduct = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id,
+          productId: id,
           ...editFormData,
         }),
       });
@@ -114,7 +122,7 @@ const Listproduct = () => {
                 className="listproduct-product-icon"
               />
 
-              {editProductId === product.id ? (
+              {editProductId === product.productId ? (
                 <>
                   <input
                     type="text"
@@ -140,18 +148,20 @@ const Listproduct = () => {
                     value={editFormData.category}
                     onChange={handleEditFormChange}
                   />
-                  <button
-                    className="btn-edit"
-                    onClick={() => updateProduct(product.id)}
-                  >
-                    <i class="fa-regular fa-floppy-disk"></i>
-                  </button>
-                  <button
-                    className="btn-edit"
-                    onClick={() => setEditProductId(null)}
-                  >
-                    <i class="fa-solid fa-circle-arrow-left"></i>
-                  </button>
+                  <div className="buttons-edits">
+                    <button
+                      className="btn-edit-flopy"
+                      onClick={() => updateProduct(product.productId)}
+                    >
+                      <i class="fa-regular fa-floppy-disk"></i>
+                    </button>
+                    <button
+                      className="btn-edit-left"
+                      onClick={() => setEditProductId(null)}
+                    >
+                      <i class="fa-solid fa-circle-arrow-left"></i>
+                    </button>
+                  </div>
                 </>
               ) : (
                 <>
@@ -159,22 +169,30 @@ const Listproduct = () => {
                   <span>{product.old_price}</span>
                   <span>{product.new_price}</span>
                   <span>{product.category}</span>
+                  <div className="buttons-edits">
                   <button
-                    className="btn-edit"
+                    className="btn-edit-flopy"
                     onClick={() => editProduct(product)}
                   >
                     <i class="fa-regular fa-pen-to-square"></i>
                   </button>
-                </>
+                  </div>
+                </> 
               )}
-
-              <img
-                onClick={() => remove_product(product.id)}
+              {/* <img
+                onClick={() => remove_product(product.productId)}
                 className="listproduct-remove-icon"
                 src={cross_icon}
                 alt="Remove"
-              />
+                /> */}
+              <button
+                className="listproduct-remove-icon"
+                onClick={() => remove_product(product.productId)}
+                >
+                <i class="fa-solid fa-trash"></i>
+              </button>
             </div>
+
             <hr />
           </React.Fragment>
         ))}

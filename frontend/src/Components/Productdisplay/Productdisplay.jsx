@@ -12,7 +12,7 @@ const Productdisplay = (props) => {
   const { addTocart } = useContext(ShopContext);  // Use the exact function name defined in context
 
   // Debug log to see if the product prop is passed correctly
-  console.log("Product received in Productdisplay:", product);
+  // console.log("Product received in Productdisplay:", product);
 
   // If product is not defined, return a fallback UI
   if (!product) {

@@ -14,8 +14,8 @@ const Product = () => {
   // const products = all_product.find((e) => e.productId === Number(id));
   const product = all_product.find((p) => p.productId === Number(productId));
 
-  console.log("Product ID from params:", product); // Should display a valid product ID
-  console.log("All Products:", all_product);
+  // console.log("Product ID from params:", product); // Should display a valid product ID
+  // console.log("All Products:", all_product);
 
   return (
     <div>
